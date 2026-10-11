@@ -2341,7 +2341,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <div class="cell-output cell-output-stdout">
 <pre><code>Filas y columnas: (49945, 9)</code></pre>
 </div>
-<div id="carga" class="cell-output cell-output-display" data-execution_count="2">
+<div id="carga" class="cell-output cell-output-display" data-execution_count="157">
 <div>
 
 
@@ -2429,7 +2429,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </div>
 <div id="cell-tipos" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>partidos.dtypes.to_frame(<span class="st">&quot;tipo&quot;</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="tipos" class="cell-output cell-output-display" data-execution_count="3">
+<div id="tipos" class="cell-output cell-output-display" data-execution_count="158">
 <div>
 
 
@@ -2536,7 +2536,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <p>Revisamos valores faltantes, duplicados y valores imposibles antes de trabajar.</p>
 <div id="cell-faltantes" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>partidos.isna().<span class="bu">sum</span>().to_frame(<span class="st">&quot;faltantes&quot;</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="faltantes" class="cell-output cell-output-display" data-execution_count="4">
+<div id="faltantes" class="cell-output cell-output-display" data-execution_count="159">
 <div>
 
 
@@ -2626,7 +2626,7 @@ Rango de fechas: 1872-11-30 a 2026-10-06</code></pre>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>partidos[<span class="st">&quot;total_goles&quot;</span>] <span class="op">=</span> partidos[<span class="st">&quot;home_score&quot;</span>] <span class="op">+</span> partidos[<span class="st">&quot;away_score&quot;</span>]</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>partidos[<span class="st">&quot;resultado&quot;</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).<span class="bu">round</span>(<span class="dv">3</span>).to_frame(<span class="st">&quot;proporción&quot;</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="objetivo" class="cell-output cell-output-display" data-execution_count="7">
+<div id="objetivo" class="cell-output cell-output-display" data-execution_count="162">
 <div>
 
 
@@ -2738,7 +2738,7 @@ Rango de fechas: 1872-11-30 a 2026-10-06</code></pre>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;sede_neutral&quot;</span>, <span class="st">&quot;es_amistoso&quot;</span>]</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>datos[VARIABLES].describe().<span class="bu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="variables" class="cell-output cell-output-display" data-execution_count="9">
+<div id="variables" class="cell-output cell-output-display" data-execution_count="164">
 <div>
 
 
@@ -2944,7 +2944,7 @@ Figura 2: Distribución del resultado, en total y según el tipo de sede.
 </div>
 <div id="cell-tabla-sede" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>tabla_sede.pivot(index<span class="op">=</span><span class="st">&quot;sede&quot;</span>, columns<span class="op">=</span><span class="st">&quot;resultado&quot;</span>, values<span class="op">=</span><span class="st">&quot;proporcion&quot;</span>)[ORDEN].<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="tabla-sede" class="cell-output cell-output-display" data-execution_count="14">
+<div id="tabla-sede" class="cell-output cell-output-display" data-execution_count="169">
 <div>
 
 
@@ -3050,7 +3050,7 @@ Máximo:  31</code></pre>
 </figure>
 </div>
 </div>
-<div id="fig-elo-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="16">
+<div id="fig-elo-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="171">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-elo-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -3148,7 +3148,8 @@ Figura 6: Trayectoria del Elo de Uruguay desde 1990.
 </div>
 </div>
 </div>
-<p>La curva sigue bastante bien la historia reciente de la selección: la caída de finales de los noventa y principios de los dos mil, la recuperación a partir de 2007 y el pico alrededor de 2011, después de la Copa América y el cuarto puesto en el Mundial.</p>
+<p>La curva tiene su punto más bajo a fines de los noventa (1624 puntos de promedio en 1997, los años en que Uruguay no se clasificó a dos Mundiales seguidos) y a partir de ahí sube de forma bastante sostenida: 1717 en 2007, 1767 en 2011 y por encima de 1800 desde 2014. El promedio más alto de toda la serie es el de <strong>2024</strong>, con 1860 puntos.</p>
+<p>Conviene leer esto con cuidado. El Elo es acumulativo y no se reinicia nunca, así que una selección que gana de manera consistente durante años va acumulando puntos sin un techo natural. Que el máximo esté al final de la serie no prueba por sí solo que este sea el mejor Uruguay de la historia; dice que viene sumando más de lo que pierde desde hace tiempo.</p>
 </section>
 </section>
 <section id="modelado" class="level1" data-number="4">
@@ -3221,7 +3222,8 @@ Figura 7: Árbol de decisión de profundidad 3.
 </div>
 </div>
 </div>
-<p>El árbol confirma lo del análisis exploratorio: <strong>el primer corte lo hace por <code>elo_dif</code></strong>, es decir, por cuál de los dos equipos venía siendo más fuerte. Los cortes siguientes usan <code>sede_neutral</code> y de nuevo <code>elo_dif</code>. Y hay algo llamativo: <strong>ninguna hoja predice empate</strong>. El árbol nunca apuesta a <code>E</code>, porque nunca es la categoría más probable en ninguna región.</p>
+<p>El árbol confirma lo del análisis exploratorio, y de una forma más contundente de lo esperado: <strong>los tres primeros cortes los hace por <code>elo_dif</code></strong>. Primero separa en −2.85 (es decir, prácticamente en cero: quién es más fuerte), y después vuelve a cortar la misma variable en −138 y en +141. Con tres niveles disponibles, el árbol los gasta enteros en partir la diferencia de Elo en cuatro tramos, sin mirar ninguna otra variable.</p>
+<p>Y hay algo todavía más llamativo: <strong>ninguna hoja predice empate</strong>. El árbol nunca apuesta a <code>E</code>, porque el empate no es la categoría más probable en ninguno de esos tramos. Volvemos sobre esto al final.</p>
 </section>
 <section id="random-forest" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="random-forest"><span class="header-section-number">4.4</span> Random forest</h2>
@@ -3271,7 +3273,7 @@ Promedio: 0.576 ± 0.001</code></pre>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Accuracy&quot;</span>: [acc_referencia, acc_arbol, acc_bosque],</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>}).<span class="bu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>comparacion</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="comparacion" class="cell-output cell-output-display" data-execution_count="26">
+<div id="comparacion" class="cell-output cell-output-display" data-execution_count="181">
 <div>
 
 
@@ -3355,7 +3357,7 @@ Figura 8: Accuracy de los tres modelos en los datos de evaluación.
 </figure>
 </div>
 </div>
-<div id="fig-importancias-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="28">
+<div id="fig-importancias-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="183">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-importancias-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
@@ -3479,7 +3481,7 @@ Gana visitante       0.59      0.63      0.61      2019
 <pre><code>Partidos de Uruguay entre 2019 y 2025: 81
 Accuracy del modelo en esos partidos: 0.519</code></pre>
 </div>
-<div id="uruguay-test" class="cell-output cell-output-display" data-execution_count="31">
+<div id="uruguay-test" class="cell-output cell-output-display" data-execution_count="186">
 <div>
 
 
