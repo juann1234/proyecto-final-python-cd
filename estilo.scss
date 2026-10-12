@@ -1,0 +1,113 @@
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: "Source Sans Pro", "Segoe UI", system-ui, sans-serif !default;
+
+$azul:    #0F3460;
+$coral:   #E94560;
+$verde:   #16A085;
+$ambar:   #F0A202;
+$gris:    #5B6B7D;
+$fondo:   #FBFCFE;
+
+$body-bg: $fondo;
+$body-color: #16222E;
+$link-color: $coral;
+$selection-bg: rgba(233, 69, 96, 0.25);
+
+$presentation-heading-color: $azul;
+$presentation-heading-font-weight: 700;
+$presentation-font-size-root: 34px;
+
+$code-block-font-size: 0.62em;
+
+/*-- scss:rules --*/
+
+.reveal h1, .reveal h2 { letter-spacing: -0.5px; line-height: 1.12; }
+
+.reveal h2 {
+  border-bottom: 4px solid $coral;
+  display: block;
+  width: fit-content;
+  padding-bottom: 6px;
+  margin-bottom: 28px;
+}
+
+/* Portada y cortes de seccion ------------------------------------- */
+.reveal .portada h1,
+.reveal .corte h1,
+.reveal .corte h2 {
+  color: #fff;
+  border: none;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal .portada p,
+.reveal .corte p { color: rgba(255,255,255,0.88); }
+
+.reveal .corte h2 { font-size: 2.1em; }
+
+/* Numeros grandes -------------------------------------------------- */
+.enorme {
+  font-size: 3.4em;
+  font-weight: 800;
+  line-height: 1;
+  color: $coral;
+}
+.enorme-azul { color: $azul; }
+.enorme-verde { color: $verde; }
+
+.pie { font-size: 0.68em; color: $gris; margin-top: 4px; }
+
+/* Tarjetas --------------------------------------------------------- */
+.tarjetas { display: flex; gap: 22px; justify-content: center; margin-top: 18px; }
+.tarjeta {
+  flex: 1;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 18px;
+  border-top: 6px solid $azul;
+  box-shadow: 0 3px 14px rgba(15,52,96,0.10);
+  text-align: center;
+}
+.tarjeta.c  { border-top-color: $coral; }
+.tarjeta.v  { border-top-color: $verde; }
+.tarjeta.a  { border-top-color: $ambar; }
+.tarjeta .n { font-size: 2.3em; font-weight: 800; color: $azul; line-height: 1; }
+.tarjeta.c .n { color: $coral; }
+.tarjeta.v .n { color: $verde; }
+.tarjeta.a .n { color: $ambar; }
+.tarjeta .t { font-size: 0.62em; color: $gris; margin-top: 8px; display: block; }
+
+/* Tablas ----------------------------------------------------------- */
+.reveal table { font-size: 0.74em; border-collapse: collapse; }
+.reveal table th {
+  background: $azul; color: #fff; border: none; padding: 9px 14px; text-align: left;
+}
+.reveal table td { border-bottom: 1px solid #DCE4EC; padding: 8px 14px; }
+.reveal table tr:last-child td { font-weight: 700; color: $azul; }
+
+/* Resaltados ------------------------------------------------------- */
+.reveal strong { color: $coral; }
+.reveal .corte strong { color: $ambar; }
+
+.caja {
+  background: #fff;
+  border-left: 7px solid $ambar;
+  border-radius: 0 10px 10px 0;
+  padding: 16px 22px;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(15,52,96,0.08);
+  font-size: 0.82em;
+}
+.caja.ok { border-left-color: $verde; }
+.caja.mal { border-left-color: $coral; }
+
+/* Imagenes --------------------------------------------------------- */
+.reveal .slide img { border-radius: 10px; background: #fff; }
+
+.reveal code { color: $coral; }
+.reveal pre code { border-radius: 10px; }
+
+.reveal .slide-number { background: $azul; }
