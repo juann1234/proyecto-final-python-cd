@@ -2,6 +2,6 @@
 
 Proyecto final · **Python para Ciencia de Datos** · 2026
 
-**Integrantes:** Juan Apolo · Alen Cukier
+**Integrantes:** Juan Apolo y Alen Cukier
 
 
