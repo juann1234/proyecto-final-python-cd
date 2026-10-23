@@ -53,18 +53,21 @@ Nueve columnas: fecha, equipos, goles, torneo, sede y si la cancha es neutral.
 
 ## El problema
 
-::: {style="font-size:0.9em"}
-De los goles sale **lo que queremos predecir**:
+::: {style="font-size:0.95em; text-align:center; margin-bottom:10px"}
+Comparamos los goles y sale **lo que queremos predecir**
 :::
 
-```python
-partidos["resultado"] = np.select(
-    [partidos["home_score"] > partidos["away_score"],
-     partidos["home_score"] == partidos["away_score"]],
-    ["L", "E"],
-    default="V",
-)
-```
+::: {.tarjetas}
+::: {.tarjeta}
+[L]{.n}[gana el local]{.t}
+:::
+::: {.tarjeta .a}
+[E]{.n}[empate]{.t}
+:::
+::: {.tarjeta .c}
+[V]{.n}[gana el visitante]{.t}
+:::
+:::
 
 ::: {.caja .mal}
 Pero entonces **no podemos usar los goles para predecir**. Sería hacer trampa.
@@ -102,27 +105,26 @@ El ganador le saca puntos al perdedor. **Cuántos depende de qué tan esperable 
 Es el sistema Elo, creado por Arpad Elo para el ajedrez.
 :::
 
-## El código {.smaller}
+## Nada del futuro
 
-```{.python code-line-numbers="|3-4|7-9|12-14"}
-for p in partidos.itertuples(index=False):
+::: {style="font-size:0.92em"}
+Recorremos los 49.144 partidos **en orden cronológico**, uno por uno:
+:::
 
-    ranking_local = ranking.get(p.home_team, 1500.0)
-    ranking_visita = ranking.get(p.away_team, 1500.0)
-
-    # Guardamos el estado ANTES de jugar
-    filas.append({"ranking_local": ranking_local,
-                  "ranking_visita": ranking_visita,
-                  "pts_local": np.mean(prev_local[-5:]), ...})
-
-    # Recién ahora miramos el resultado
-    esperado = 1 / (1 + 10 ** (-(ranking_local - ranking_visita + ventaja) / 400))
-    ajuste = K * (real_local - esperado)
-    ranking[p.home_team] = ranking_local + ajuste
-```
+::: {.tarjetas}
+::: {.tarjeta}
+[1]{.n}[**Leemos** el ranking y la forma con que llegaban los dos equipos]{.t}
+:::
+::: {.tarjeta .a}
+[2]{.n}[Guardamos ese estado: es lo único que el modelo puede usar]{.t}
+:::
+::: {.tarjeta .v}
+[3]{.n}[**Recién ahora** miramos el resultado y actualizamos]{.t}
+:::
+:::
 
 ::: {.caja .ok}
-Primero **leemos**, después **actualizamos**. Ningún partido usa su propio resultado ni el futuro.
+Primero leemos, después actualizamos. Así **ningún partido usa su propio resultado ni el futuro**.
 :::
 
 ## ¿Funciona?
@@ -222,22 +224,23 @@ Si mezcláramos los años, el modelo podría **entrenar con 2020 para predecir 2
 Es justo lo contrario de lo que queremos.
 :::
 
-## Tres modelos {.smaller}
+## Tres modelos, del tonto al complejo
 
-```{.python code-line-numbers="|1-2|4-5|7-12"}
-# 1. Referencia: predecir siempre la clase más frecuente
-clase_mas_comun = y_train.value_counts().index[0]
+::: {.tarjetas}
+::: {.tarjeta .a}
+[1]{.n}[**Referencia**<br>Predecir siempre "gana el local", sin mirar nada. El piso a superar.]{.t}
+:::
+::: {.tarjeta}
+[2]{.n}[**Árbol de decisión**<br>Preguntas de sí o no, tres niveles. Se puede dibujar y leer.]{.t}
+:::
+::: {.tarjeta .v}
+[3]{.n}[**Random forest**<br>200 árboles que votan. Más estable, menos interpretable.]{.t}
+:::
+:::
 
-# 2. Árbol de decisión
-arbol = DecisionTreeClassifier(max_depth=3, random_state=42).fit(X_train, y_train)
-
-# 3. Random forest, con los hiperparámetros elegidos por validación cruzada
-grilla = GridSearchCV(
-    RandomForestClassifier(n_estimators=200, random_state=42),
-    param_grid={"max_depth": [4, 6, 8, 12], "min_samples_leaf": [5, 20, 50]},
-    cv=5,
-).fit(X_train, y_train)
-```
+::: {.caja}
+Los hiperparámetros se eligen con validación cruzada **dentro del entrenamiento**, sin tocar los datos de evaluación.
+:::
 
 ## El árbol solo mira una cosa
 
